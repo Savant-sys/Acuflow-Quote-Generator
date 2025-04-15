@@ -1,0 +1,381 @@
+/* custom-pump-tool.css */
+
+/* General body styling for better embedding */
+body {
+  margin: 0;
+  font-family: sans-serif; /* Basic font stack */
+  /* background-color: #f0f2f5; */ /* Removed background */
+  /* overflow: hidden; */ /* Removed hidden overflow, handled by columns/mobile */
+}
+
+#pump-tool {
+  padding: 20px 1px; /* Minimal left and right padding */
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* Container that creates a two-column layout (Form left, Results right) */
+#pump-tool .pump-grid {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 5px; /* Minimal gap between columns */
+  margin: 0 auto;
+  align-items: start;
+  width: 100%;
+}
+
+/* Left Form */
+#pump-tool .form-section {
+  background-color: #fff;
+  padding: 10px; /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: calc(100vh - 200px); /* Account for header/footer */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Right Results */
+#pump-tool .results-section {
+  background-color: #fff;
+  padding: 10px; /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: calc(100vh - 200px); /* Account for header/footer */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Section headers */
+#pump-tool .section-header {
+  color: #003A63;
+  border-bottom: 2px solid #003A63;
+  padding-bottom: 4px; /* Reduced from 8px */
+  margin: 0 0 12px 0; /* Reduced from 25px */
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Reduced from 10px */
+}
+
+/* Form Category */
+#pump-tool .form-category {
+  margin-bottom: 15px; /* Reduced from 30px */
+  padding: 10px; /* Reduced from 20px */
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+}
+
+#pump-tool .category-header {
+  color: #003A63;
+  margin-top: 0;
+  margin-bottom: 10px; /* Reduced from 20px */
+  padding-bottom: 5px; /* Reduced from 10px */
+  border-bottom: 1px solid #dee2e6;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Label and Inputs */
+#pump-tool label {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Reduced from 8px */
+  margin-bottom: 4px; /* Reduced from 8px */
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.95em;
+}
+
+#pump-tool label i {
+  color: #003A63; /* Icon color */
+  width: 16px; /* Fixed width for alignment */
+  text-align: center;
+}
+
+#pump-tool input[type="text"],
+#pump-tool input[type="email"],
+#pump-tool input[type="number"],
+#pump-tool select {
+  width: 100%;
+  padding: 6px 8px; /* Reduced from 10px 12px */
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 2px; /* Reduced from 5px */
+  font-size: 1em;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#pump-tool input:focus,
+#pump-tool select:focus {
+    border-color: #003A63;
+    box-shadow: 0 0 0 0.2rem rgba(0, 58, 99, 0.25);
+    outline: none;
+}
+
+/* Adjust margin specifically for selects within the grid */
+#pump-tool .form-grid select {
+    margin-bottom: 8px; /* Reduced from 15px */
+}
+
+/* Buttons */
+#pump-tool button {
+  background-color: #003A63;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px; /* Slightly more rounded */
+  cursor: pointer;
+  font-size: 1.05em; /* Slightly larger */
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.1s;
+  width: auto; /* Allow button to size naturally */
+  display: inline-flex; /* Align icon and text */
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+/* Button container should stick to bottom of form */
+#pump-tool .button-container {
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  padding: 10px 0 0 0; /* Reduced from 20px */
+  margin-top: auto;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+#pump-tool button:hover {
+  background-color: #00284a; /* Darker blue on hover */
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+#pump-tool button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Flange and relay options, hidden by default */
+#pump-tool .flange-size-options {
+  display: none;
+  margin-top: 5px; /* Reduced from 10px */
+  padding: 5px; /* Reduced from 10px */
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+#pump-tool #relay-option-group {
+  display: none;
+  margin-top: 5px; /* Reduced from 10px */
+  padding: 5px; /* Reduced from 10px */
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* The form grid, 2 columns inside each category */
+#pump-tool .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 8px; /* Reduced from 20px 15px */
+}
+
+/* For mobile: single-column layout */
+@media (max-width: 992px) {
+  #pump-tool {
+    padding: 20px 1px; /* Consistent minimal padding on mobile */
+  }
+  #pump-tool .pump-grid {
+    grid-template-columns: 1fr;
+    gap: 4px; /* Minimal gap on mobile */
+  }
+  #pump-tool .form-section,
+  #pump-tool .results-section {
+    max-height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  #pump-tool {
+    padding: 15px 1px; /* Minimal padding on smaller screens */
+  }
+  #pump-tool .form-grid {
+    grid-template-columns: 1fr;
+  }
+  #pump-tool .form-section, 
+  #pump-tool .results-section {
+    padding: 10px;
+  }
+  #pump-tool .section-header { 
+    font-size: 1.2em; 
+  }
+  #pump-tool .category-header { 
+    font-size: 1.1em; 
+  }
+}
+
+/* Example: styling the results (optional) */
+#pump-tool #result {
+  display: none; /* hidden until we reveal it with JS */
+}
+
+#pump-tool #result-content {
+  margin-top: 20px;
+  min-height: 100px; /* Minimum height for content area */
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+}
+
+/* Style for the placeholder text */
+#pump-tool #result-content .placeholder-text {
+    color: #6c757d; /* Bootstrap's muted text color */
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Unit Selection Styles */
+.unit-selection {
+    margin-bottom: 8px; /* Reduced from 15px */
+}
+
+.unit-options {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Reduced from 8px */
+    margin-top: 4px; /* Reduced from 8px */
+}
+
+.unit-option {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px; /* Reduced from 8px 12px */
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    position: relative;
+    min-height: 36px; /* Reduced from 44px */
+}
+
+/* Make unselected options clickable */
+.unit-option:not(.selected) {
+    cursor: pointer;
+}
+
+/* Make selected options unclickable */
+.unit-option.selected {
+    cursor: default;
+    background-color: #e9ecef;
+}
+
+.unit-option:hover:not(.selected) {
+    background-color: #e9ecef;
+}
+
+.unit-option input[type="radio"] {
+    margin: 0;
+    margin-right: 12px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: #003A63;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+/* Make radio button unclickable when selected */
+.unit-option.selected input[type="radio"] {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Make text unclickable when selected */
+.unit-option.selected .unit-text {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Selected state */
+.unit-option.selected .unit-text {
+    color: #003A63;
+    font-weight: 500;
+}
+
+/* Default selected state for GPH and PSI */
+.unit-option input[type="radio"][value="gph"]:checked + .unit-text,
+.unit-option input[type="radio"][value="psi"]:checked + .unit-text {
+    color: #003A63;
+    font-weight: 500;
+}
+
+/* Remove conflicting styles */
+.unit-content,
+.unit-option .bullet,
+.unit-toggle-btn .arrow,
+.unit-dropdown,
+.unit-btn,
+.unit-separator {
+    display: none;
+}
+
+/* Input Container Styles */
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    padding-right: 12px; /* Reduced padding since we're removing the unit display */
+    margin-bottom: 0;
+    width: 100%;
+}
+
+/* Remove the unit display */
+.unit-display {
+    display: none;
+}
+
+.input-hint {
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-top: 2px; /* Reduced from 5px */
+    display: block;
+    margin-bottom: 8px; /* Reduced from 15px */
+}
+
+/* Validation Styles */
+input:invalid {
+    border-color: #dc3545;
+}
+
+input:invalid:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.unit-text {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    text-align: left;
+    flex: 1;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
