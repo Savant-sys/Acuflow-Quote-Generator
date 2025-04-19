@@ -76,8 +76,8 @@ This project is actively running in production:
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/Savant-sys/your-repo.git
-cd your-repo
+git clone https://github.com/Savant-sys/Acuflow-Quote-Generator.git
+cd Acuflow-Quote-Generator
 ```
 
 ### 2. MySQL setup
