@@ -12,6 +12,8 @@ The frontend is hosted via WordPress (GoDaddy cPanel), which connects to a live 
 
 [![Watch the demo](https://img.youtube.com/vi/JDMOYXBoGl0/0.jpg)](https://youtu.be/JDMOYXBoGl0)
 
+> 🟢 **Live Tool:** [https://www.acuflow.com/auto-pump-selector/](https://www.acuflow.com/auto-pump-selector/)
+
 ---
 
 ## 🌐 Deployment
