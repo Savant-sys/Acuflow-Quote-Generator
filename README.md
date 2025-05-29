@@ -23,7 +23,7 @@ This project is actively running in production:
 - **Database:** Secure remote MySQL database
 - **Communication:** JavaScript (frontend) makes real-time API calls to Heroku backend
 
-> This system is actively used to generate real customer quotes.
+> This system is actively used to generate real customer quotes. https://www.acuflow.com/auto-pump-selector/
 
 ---
 
